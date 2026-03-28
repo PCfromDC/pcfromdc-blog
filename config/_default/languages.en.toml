@@ -1,0 +1,19 @@
+languageCode = "en-us"
+languageName = "English"
+languageDirection = "ltr"
+weight = 1
+
+title = "The PC Way — DevOps, Cloud, and SharePoint"
+
+[params]
+  dateFormat = "January 2, 2006"
+  mainSections = ["posts"]
+  description = "SharePoint, Azure, SQL, and various other bits of information"
+
+[params.author]
+  name = "Patrick Curran"
+  headline = "DevOps, Cloud, and SharePoint"
+  bio = "IT professional specializing in DevOps, Cloud, and SharePoint technologies."
+  links = [
+    { github = "https://github.com/PCfromDC" },
+  ]

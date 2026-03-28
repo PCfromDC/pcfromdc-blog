@@ -1,0 +1,26 @@
+theme = "congo"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+summaryLength = 0
+
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[pagination]
+  pagerSize = 15
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  lineNos = false
+  style = "monokai"
+
+[markup.goldmark.renderer]
+  unsafe = true
