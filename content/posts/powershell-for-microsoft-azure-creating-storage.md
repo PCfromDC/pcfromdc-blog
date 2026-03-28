@@ -3,6 +3,8 @@ title: "PowerShell for Microsoft Azure- Creating Storage"
 date: 2015-01-26T15:03:00+0000
 categories: ["PowerShell", "Azure"]
 tags: ["Container", "Storage"]
+aliases:
+  - "/2015/01/powershell-for-microsoft-azure.html"
 legacy: true
 ---
 
@@ -10,11 +12,11 @@ legacy: true
 
 This is part 4 of the blog series on getting Started with Microsoft Azure.
 
-[Part 1: Microsoft Azure- Getting Started](http://pcfromdc.blogspot.com/2014/12/microsoft-azure-getting-started.html)
+[Part 1: Microsoft Azure- Getting Started](/posts/microsoft-azure-getting-started/)
 
-[Part 2: PowerShell for Microsoft Azure- Getting Started](http://pcfromdc.blogspot.com/2015/01/powershell-for-microsoft-azure-getting.html)
+[Part 2: PowerShell for Microsoft Azure- Getting Started](/posts/powershell-for-microsoft-azure-getting/)
 
-[Part 3: Microsoft Azure- Create Geo Redundancy and Virtual Networks](http://pcfromdc.blogspot.com/2015/01/microsoft-azure-create-geo-redundancy.html)
+[Part 3: Microsoft Azure- Create Geo Redundancy and Virtual Networks](/posts/microsoft-azure-create-geo-redundancy/)
 
 Part 4: PowerShell for Microsoft Azure- Creating Storage (This post)
 
@@ -35,16 +37,16 @@ Let's Get Started
 
 Azure is a great tool for building out servers through their GUI, however, I am not a big fan of the cryptic storage containers that Azure provides if you just create a server before creating your storage. 
 
-[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU_FH6ilQ03nV3e9E09jzqW7tZEQZDdKenvRTSh-Y8lGy-ntsr1PvQNGzMixkb9wuTucBU4EiPSNRdNoLNAEPtxZ-lI6MXBbd-Csb7uqGChyphenhyphen6lxzpIWEWXIKgExncnfVYL12mc_p7ATEc0/s1600/1-+Ugly+GUI.jpg)
+[*](/images/1- Ugly GUI.jpg)
 This cryptic Name is carried down to the URL of the storage account.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZGf7-wK76ROTcxFNPtEO8Om6DOSgMYUllikvZTGllQSe8OFORt1ZsQGkfJs65YZrrWuE-tlkJpZLiznl4XwhRUqqbsZX-Md2-1dz5Jy10a37Z77YOLCiAP33aVsIJygPMm0E4dPKDdYNr/s1600/2-+vhd+folder.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZGf7-wK76ROTcxFNPtEO8Om6DOSgMYUllikvZTGllQSe8OFORt1ZsQGkfJs65YZrrWuE-tlkJpZLiznl4XwhRUqqbsZX-Md2-1dz5Jy10a37Z77YOLCiAP33aVsIJygPMm0E4dPKDdYNr/s1600/2-+vhd+folder.jpg)
+[![](/images/2- vhd folder.jpg)](/images/2- vhd folder.jpg)
 Not a very user friendly way to go...
 
 #### 
 Creating Storage- PowerShell
 
-In the second post of this series, [PowerShell for Microsoft Azure- Getting Started](http://pcfromdc.blogspot.com/2015/01/powershell-for-microsoft-azure-getting.html), we review just that... how to get started. Now it is time to start using some of your PowerShell skills. Let's say for example, that you wish to upload your own images into a container named, "Images" and you want to have your "Images" container live within your "Contoyso East Network". Unfortunately, storage and container names need be be all lowercase letters and/or numbers, no spaces and no dashes. By default, when you create a storage account, Geo Redundant Storage is automatically enabled. This is perfect if your storage does not require high IOPS. To create a storage account run the following:
+In the second post of this series, [PowerShell for Microsoft Azure- Getting Started](/posts/powershell-for-microsoft-azure-getting/), we review just that... how to get started. Now it is time to start using some of your PowerShell skills. Let's say for example, that you wish to upload your own images into a container named, "Images" and you want to have your "Images" container live within your "Contoyso East Network". Unfortunately, storage and container names need be be all lowercase letters and/or numbers, no spaces and no dashes. By default, when you create a storage account, Geo Redundant Storage is automatically enabled. This is perfect if your storage does not require high IOPS. To create a storage account run the following:
 
 ```
 $storageAccountName = "contoysoweststorage1"
@@ -62,10 +64,10 @@ $container = New-AzureStorageContainer -Name $containerName -Context $context
 
 This would create a Storage Account that looks like this:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7nAmHZUXo5YRXLCP22qY8BSPTvGmXHjvkNfkSYffvvriOcigFPbsUF-NctetycxL2r-kFKQSsN4bh3H5q8u9FsY6a58D9kBEeRUGlR_SvNhjp7PtFXMIXS3u1gZrXroxpdWFP1M7FDavZ/s1600/4-+West+Europe+Created.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7nAmHZUXo5YRXLCP22qY8BSPTvGmXHjvkNfkSYffvvriOcigFPbsUF-NctetycxL2r-kFKQSsN4bh3H5q8u9FsY6a58D9kBEeRUGlR_SvNhjp7PtFXMIXS3u1gZrXroxpdWFP1M7FDavZ/s1600/4-+West+Europe+Created.jpg)
+[![](/images/4- West Europe Created.jpg)](/images/4- West Europe Created.jpg)
 And the West Europe container would look like this:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0W72NdtjnSpdp3VWVOTSqXEX470GtyUO_jE08ZvjAW63W_EIxdafScqu_ys5EPoBPCdxSjK8fWgP4HL13UVxBLro8Dpe5ixUqHeqocjNJtGvZG9JShGOX52UvLy2im1X9gKxYJZ9ezNix/s1600/5-+Container.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0W72NdtjnSpdp3VWVOTSqXEX470GtyUO_jE08ZvjAW63W_EIxdafScqu_ys5EPoBPCdxSjK8fWgP4HL13UVxBLro8Dpe5ixUqHeqocjNJtGvZG9JShGOX52UvLy2im1X9gKxYJZ9ezNix/s1600/5-+Container.jpg)
+[![](/images/5- Container.jpg)](/images/5- Container.jpg)
 
 Now, let's say that we need to put our data on SSDs as we are running SharePoint in Azure, and we want to optimize our SQL drives. Ideally you would want to put the drives in the new Premium Storage.
 
@@ -84,7 +86,7 @@ $container = New-AzureStorageContainer -Name $containerName -Context $context
 ```
 
 #### 
-Unfortunately, at the time of this blog post, Azure Premium storage is only available in the West US, East US 2, and West Europe. If your Azure account is not set up correctly, you will receive notice that your "subscription is not authorized for feature Premium Storage". [![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0pVzMi97ZesgqCsK4OxN4mRf52e4kxpbue5hxMHHcVCU2I47eK7LKd2rwEwY1mfRGAQxbJQpilIdCrTHhe7TYAxnjiybBMDif-9D1KfPbaEZodILlrw0i0BsIg0OEk817XFV1zXqXhWwE/s1600/6-+Error.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0pVzMi97ZesgqCsK4OxN4mRf52e4kxpbue5hxMHHcVCU2I47eK7LKd2rwEwY1mfRGAQxbJQpilIdCrTHhe7TYAxnjiybBMDif-9D1KfPbaEZodILlrw0i0BsIg0OEk817XFV1zXqXhWwE/s1600/6-+Error.jpg)
+Unfortunately, at the time of this blog post, Azure Premium storage is only available in the West US, East US 2, and West Europe. If your Azure account is not set up correctly, you will receive notice that your "subscription is not authorized for feature Premium Storage". [![](/images/6- Error.jpg)](/images/6- Error.jpg)
 
 #### 
 Create Storage for SQL
@@ -100,7 +102,7 @@ Warning
 
 Do not put all of your eggs in one basket. There is a potential for a Storage Account to get corrupted, and you could lose everything. Make sure that you have backups set up to a secondary Geo-Redundant Storage Account. If you have the ability to delay the creation of your backup storage account, it will lessen the likelihood of your Storage Accounts being created in the same storage pool within Azure. Here is an example of another storage strategy:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGl1d-5ikH7oHV8W9uAAxe6NtOJJzar1xQ1W0tZ_kZ_FRk3WuAqAQtiZtw0mVWT5PYtQom2WCI1C4X3G_lLLngiwCOAJ8fxWm9sasn89TBg8jYw9DCM27_biXrctSVbUVt-xAVfG0GvTcb/s1600/7-+Storage+Drawings.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGl1d-5ikH7oHV8W9uAAxe6NtOJJzar1xQ1W0tZ_kZ_FRk3WuAqAQtiZtw0mVWT5PYtQom2WCI1C4X3G_lLLngiwCOAJ8fxWm9sasn89TBg8jYw9DCM27_biXrctSVbUVt-xAVfG0GvTcb/s1600/7-+Storage+Drawings.jpg)
+[![](/images/7- Storage Drawings.jpg)](/images/7- Storage Drawings.jpg)
 
 And once again, any time you are building out anything in Azure, you will want to do it through PowerShell:
 

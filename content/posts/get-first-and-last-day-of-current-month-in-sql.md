@@ -3,6 +3,8 @@ title: "Get First and Last Day of Current Month in SQL"
 date: 2012-03-03T03:06:00+0000
 categories: ["SQL"]
 tags: ["SSRS"]
+aliases:
+  - "/2012/03/get-first-and-last-day-of-current.html"
 legacy: true
 ---
 
@@ -38,4 +40,4 @@ select @first, @last
 
 ```
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVdNUGYF0R4hYelOaojNBkkUvA4n1t95oakcaeIoeKTjjZ97u9oYcofXbNuaohPmCw54dS7gNeYiHGq81wVJDoAbgzkoBCnEnkSgIo0B7kI1V3mC_VK9U_SlLCQBE1DCsCR753lSHur8bT/s400/FirstLastDayResults.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVdNUGYF0R4hYelOaojNBkkUvA4n1t95oakcaeIoeKTjjZ97u9oYcofXbNuaohPmCw54dS7gNeYiHGq81wVJDoAbgzkoBCnEnkSgIo0B7kI1V3mC_VK9U_SlLCQBE1DCsCR753lSHur8bT/s1600/FirstLastDayResults.jpg)
+[![](/images/FirstLastDayResults.jpg)](/images/FirstLastDayResults.jpg)

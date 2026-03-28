@@ -3,6 +3,8 @@ title: "Sync Active Directory to SQL"
 date: 2011-01-17T22:29:00+0000
 categories: ["SQL"]
 tags: ["Synchronization", "Active Directory"]
+aliases:
+  - "/2011/01/sync-active-directory-to-sql.html"
 legacy: true
 ---
 
@@ -26,7 +28,7 @@ The first thing we need to accomplish is to create a Linked Server, Server Objec
 ## *Create the ADSI
 
 *
-Active Directory Services Interface (ADSI) allows us to talk to Active Directory.[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjit2of5BuSFI3M6TkrvZB6mx_29SE3XcDYMZilqY93FRlO-c3iRhmKALgFLOE2hvcPW7sWPUu26ROYjRYPlDLbHftObwWJMsOWSJtcQxYt1dVELPpG1LMlIMMY6wTbwiZjzXYmKyC31_H-/s1600/Create+ADSI.jpg)
+Active Directory Services Interface (ADSI) allows us to talk to Active Directory.[*](/images/Create ADSI.jpg)
 
 [Get ADSI SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
 
@@ -35,20 +37,20 @@ The next step is to create a temporary table to store the information that has b
 ## Create the Temp Table
 
 ## If you are going to bring back the lastLogon value, create a column for each of the Domain Controllers.
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNqeBLRG9iAZqHoBva3dNIaYLLFXhLiUfpQ8neEO4JknVy_k_TYAU83dSAVIhdvjZENS5CqMFsQ6QXphfNDjdR8hhQD-nZfl_2KsWmBaRRrGD_JUvsTJeGQ4FuL3ICAMilMimE73YA3mL8/s640/Create+Temp+Table.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNqeBLRG9iAZqHoBva3dNIaYLLFXhLiUfpQ8neEO4JknVy_k_TYAU83dSAVIhdvjZENS5CqMFsQ6QXphfNDjdR8hhQD-nZfl_2KsWmBaRRrGD_JUvsTJeGQ4FuL3ICAMilMimE73YA3mL8/s1600/Create+Temp+Table.jpg)[Get Temp Table SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
+[![](/images/Create Temp Table.jpg)](/images/Create Temp Table.jpg)[Get Temp Table SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
 ## Create the System User Table
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRi6C3PMgb1qcUhcNwO14Yr2NQKYkhOzoC3Gh2eTKeL4zYvtjpSElz3hoRGjeIOKV9kjPmkuG1mxMxwXdGqq81XtefdpwCz5moHkQYH1G_nfIeLKJACEjHeWxlfPdF2-icPEgbUP3Y3Vi2/s640/Create+System+Users+Table.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRi6C3PMgb1qcUhcNwO14Yr2NQKYkhOzoC3Gh2eTKeL4zYvtjpSElz3hoRGjeIOKV9kjPmkuG1mxMxwXdGqq81XtefdpwCz5moHkQYH1G_nfIeLKJACEjHeWxlfPdF2-icPEgbUP3Y3Vi2/s1600/Create+System+Users+Table.jpg)[Get User Table SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
+[![](/images/Create System Users Table.jpg)](/images/Create System Users Table.jpg)[Get User Table SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
 
 [](http://yahoo.com/)Create a Scalar-valued Function
 
 As far as I know, there is not an easier way to compare values within a single row than creating a function to compare values for us.  Once again, depending on how many domain controllers you have, will determine the number of columns to compare.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1mLiz6rWAB7gQ9EA4EAK5hbZH8vPom6BCYykQ8_QKqm_6pm_0ZbRo5CgknFP4FFy31x3P-FSV4pcswPan1L7W5RStOcyhNnm6Tg5uB0x-qPY8JARbYi5ppVCaJSnfpnxVAWnrAS2IRu-P/s640/Create+Function.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1mLiz6rWAB7gQ9EA4EAK5hbZH8vPom6BCYykQ8_QKqm_6pm_0ZbRo5CgknFP4FFy31x3P-FSV4pcswPan1L7W5RStOcyhNnm6Tg5uB0x-qPY8JARbYi5ppVCaJSnfpnxVAWnrAS2IRu-P/s1600/Create+Function.jpg)[Get Scalar-valued Function SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
+[![](/images/Create Function.jpg)](/images/Create Function.jpg)[Get Scalar-valued Function SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)
 ## Get the Information
 
 Depending on how many Domain Controllers you have, you will have to adjust your scripts to match your tables.  Also, this script will only bring back 1,000 records at a time, due to a default paging setting in AD.  You can either get the admin to change the setting (not a good idea) or create an additional filter to bring back the users in chunks.  I would suggest filtering on the sAMAccountName, and bring back the users that have names that start with A-C, D-F,G-I,...  you get the idea.  So lets test...
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKihEIu7vjKG3TZT7v1BY6DaKf3wsvP9jsPupt7GioIt1AOePuGpZVNUjqmx3xnR104Fi48k0qQ4GmhKqjT9Pbqrr3IFYDlOtP8zzfH7bk7RKkWgOhVeh0pP621TUPbD-HFrnyKrPvpamm/s400/Test+Script.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKihEIu7vjKG3TZT7v1BY6DaKf3wsvP9jsPupt7GioIt1AOePuGpZVNUjqmx3xnR104Fi48k0qQ4GmhKqjT9Pbqrr3IFYDlOtP8zzfH7bk7RKkWgOhVeh0pP621TUPbD-HFrnyKrPvpamm/s1600/Test+Script.jpg)Press F5 (Execute!)[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFYDGNus46koifbs7JW62QSz8i3W-3xibgrMptI2sj_YcdzvRZxbpRkgOd6REJNUYdkQs3pmunmgemQ-iDpIYYhyrMbVs3V-6oJB-JCKPNncFYARJmx33hH8RYDt-N7VHuWmOUiWGKR2df/s640/Test+Script+Results.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFYDGNus46koifbs7JW62QSz8i3W-3xibgrMptI2sj_YcdzvRZxbpRkgOd6REJNUYdkQs3pmunmgemQ-iDpIYYhyrMbVs3V-6oJB-JCKPNncFYARJmx33hH8RYDt-N7VHuWmOUiWGKR2df/s1600/Test+Script+Results.jpg)
+[![](/images/Test Script.jpg)](/images/Test Script.jpg)Press F5 (Execute!)[![](/images/Test Script Results.jpg)](/images/Test Script Results.jpg)
 
 [Get Test SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468) 
 
@@ -71,15 +73,15 @@ There are several ways to create a timer job, this is the way that I do it...
 
 After we create the stored procedure, right click the procedure and select Script Stored Procedure as --> Execute To --> Agent Job...
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5h1u8ZuhqGm7ig5Qu1-5WpVIYewen-9vhtoflakPM8o_LRTUNGU-stKeRW9s8J7qaYcc9OduoxsaovidyWUu3qB_5KR1t9I9TVTCpxqulDqyPP8jHuHi8CZjxKuLvdzF6NXXhl14NpZE-/s640/Create+Agent+Job.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5h1u8ZuhqGm7ig5Qu1-5WpVIYewen-9vhtoflakPM8o_LRTUNGU-stKeRW9s8J7qaYcc9OduoxsaovidyWUu3qB_5KR1t9I9TVTCpxqulDqyPP8jHuHi8CZjxKuLvdzF6NXXhl14NpZE-/s1600/Create+Agent+Job.jpg)
+[![](/images/Create Agent Job.jpg)](/images/Create Agent Job.jpg)
 
 Fill in your timer information...  NOTE:  This is only a temporary timer job...
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0VQwztXcPszMKhaB1oufD5iyO-95EdZ7b6yrYtm-RoH_aG4pFlijBZ8r9QhSUURPAWgH-gFMmuJ6-Vxet8xThVRRUg7EU7nmVumujarBGhWAQR3474oNv7sa32-hPNmgvw6h_qgGOP65C/s640/Add+temp+timer+job.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0VQwztXcPszMKhaB1oufD5iyO-95EdZ7b6yrYtm-RoH_aG4pFlijBZ8r9QhSUURPAWgH-gFMmuJ6-Vxet8xThVRRUg7EU7nmVumujarBGhWAQR3474oNv7sa32-hPNmgvw6h_qgGOP65C/s1600/Add+temp+timer+job.jpg)
+[![](/images/Add temp timer job.jpg)](/images/Add temp timer job.jpg)
 
 Now we expand out SQL Server Agent, and Jobs, and look for our new timer job.  Open up the properties of our new timer job, go to the Schedules Page, and modify the schedule: 
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq0bPLgTvqHGFrUsEGJa7AMlpeHbH9JSx-X65r9TOGAHXa23HPkIAS-xAq0UDW8wBkY0mX9AwoDe4e0TR2v9hf_75sEVZkIh3llUa498-J_TAOBBCM2Ezla1kP4CPSHEtfxQMNXCh8H2nI/s640/Modify+Job+Schedule.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq0bPLgTvqHGFrUsEGJa7AMlpeHbH9JSx-X65r9TOGAHXa23HPkIAS-xAq0UDW8wBkY0mX9AwoDe4e0TR2v9hf_75sEVZkIh3llUa498-J_TAOBBCM2Ezla1kP4CPSHEtfxQMNXCh8H2nI/s1600/Modify+Job+Schedule.jpg)
+[![](/images/Modify Job Schedule.jpg)](/images/Modify Job Schedule.jpg)
 
 Right click your new timer job and select Start Job at Step...  and you should get a Success message or two!*[Get Timer Job SQL script here](http://cid-8e55aa8c038225f8.office.live.com/browse.aspx/AD%20Sync?wa=wsignin1.0&sa=514226468)*
 

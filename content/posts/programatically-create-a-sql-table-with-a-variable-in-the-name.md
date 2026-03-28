@@ -2,6 +2,8 @@
 title: "Programatically Create a SQL Table with a Variable in The Name"
 date: 2011-02-19T17:47:00+0000
 categories: ["SQL"]
+aliases:
+  - "/2011/02/programatically-create-a-sql-table.html"
 legacy: true
 ---
 

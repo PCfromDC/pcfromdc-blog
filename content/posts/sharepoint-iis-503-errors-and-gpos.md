@@ -3,6 +3,8 @@ title: "SharePoint, IIS, 503 errors and GPOs"
 date: 2013-07-16T03:22:00+0000
 categories: ["SharePoint", "SQL"]
 tags: ["IIS 8.0", "GPO", "Permissions", "IIS 7.5", "Security", "IIS 7"]
+aliases:
+  - "/2013/07/sharepoint-iis-503-errors-and-gpos.html"
 legacy: true
 ---
 
@@ -18,12 +20,12 @@ I was working with a group out of Alaska and Seattle, WA, to get a SharePoint 20
 
 As with any SharePoint Farm installation, I installed SQL first. Everything seemed to have installed correctly, however after reboot, the SQL Server instance and the SQL Agent instance would not fire up, as seen in Figure 1.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji2R6iOl6Qb6H3OlwzDDoSS5hSBmGeMc3aZX-618psXJnrgCs8xQGef5_2YVo0HL4SyFou7D4yEvUNFzlF6984SvD-xEhqO8XNQSjEGD7OQg3zehSMUq-jRjAthhJj7SbAb3So6j9X9wLQ/s640/SQL+Stopped.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji2R6iOl6Qb6H3OlwzDDoSS5hSBmGeMc3aZX-618psXJnrgCs8xQGef5_2YVo0HL4SyFou7D4yEvUNFzlF6984SvD-xEhqO8XNQSjEGD7OQg3zehSMUq-jRjAthhJj7SbAb3So6j9X9wLQ/s1600/SQL+Stopped.png)
+[![](/images/SQL Stopped.png)](/images/SQL Stopped.png)
 **Figure 1**: Showing the stopped SQL Server and SQL Agent accounts.
 
 In the process of troubleshooting, I opened up the service instance for the SQL Server Service and verified that the password was correct. As seen in Figure 2, after entering the account password, I was greeted with a message.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN9Ph3KMzilIEX7eSeKPcdkD67jNvdboaZtc6jAB175F1G5xPDlffG_L_fTJqouye143X59YUWcMGIXfgTZ94KNXflY2m7u_qaTFf7ohWBR2BE1H_cFdon4-R4rQc9uVR8NP7qgetZj85B/s400/SQL+Login+Granted.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN9Ph3KMzilIEX7eSeKPcdkD67jNvdboaZtc6jAB175F1G5xPDlffG_L_fTJqouye143X59YUWcMGIXfgTZ94KNXflY2m7u_qaTFf7ohWBR2BE1H_cFdon4-R4rQc9uVR8NP7qgetZj85B/s1600/SQL+Login+Granted.png)
+[![](/images/SQL Login Granted.png)](/images/SQL Login Granted.png)
 **Figure 2**: Shows that after entering the account password, that the account has been granted the Log On As A Service right.
 
 This pointed me in the right direction for the first problem in this environment. The service accounts that were created in Active Directory (AD) had a GPO rule that new accounts could not Log On As A Service. The new accounts were put into a new Security Group, ran a gpupdate /force ([http://technet.microsoft.com/en-us/library/bb490983.aspx](http://technet.microsoft.com/en-us/library/bb490983.aspx)), rebooted the server and SQL was now able to be rebooted successfully and have the service instances come up running!
@@ -32,7 +34,7 @@ This pointed me in the right direction for the first problem in this environment
 
 Unfortunately, placing all the service accounts into the new Security Group did not stop all the issues within the Farm. SharePoint installed correctly, and Central Administration(CA) provisioned and started correctly, however, after rebooting the server, I would receive a 503 error when trying to get to CA. Typically you would receive a 503 error when the Application Pool Account for your site has been stopped. After manually starting the account and clicking on the CA link, I would get a 503 error and my Application Pool Accounts would be stopped again, as seen in Figure 3.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwZbAnG7UlYdNjuQrHv38NFOcq0LzG1QuAU3blglmHuBviYrimqzvayYS2KYw-ESy9UKOU93iWfAYfhP4MVYPmSwJtAKsGG2jT81MZsjmoXWr7Ljz8nh3pA4ItR4Hg9PS8KB4eCsw3DAB4/s640/IIS+Stopped.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwZbAnG7UlYdNjuQrHv38NFOcq0LzG1QuAU3blglmHuBviYrimqzvayYS2KYw-ESy9UKOU93iWfAYfhP4MVYPmSwJtAKsGG2jT81MZsjmoXWr7Ljz8nh3pA4ItR4Hg9PS8KB4eCsw3DAB4/s1600/IIS+Stopped.png)
+[![](/images/IIS Stopped.png)](/images/IIS Stopped.png)
 **Figure 3**: After browsing through the IIS sites, the Application Pools would stop.
 
 Which brought up the following in the error logs:
@@ -77,7 +79,7 @@ Pretty nice to actually get a message that means something for once. But which a
 
 [http://support.microsoft.com/kb/981949](http://support.microsoft.com/kb/981949) (see Figure 4)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi45orH972Pd1SQX39Er3RgtBPkBTc0SQ4IDVDQOUrLsLarveYhQZlNycLONKmoyNipbco5BSgw0CjDl1SYYGcSMd_XSc4Voh1ou1SHBWkPIw-wSKPjveZPf4yV90mREnih95CmmItb2RZt/s640/Log+On+As+Batch+Job.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi45orH972Pd1SQX39Er3RgtBPkBTc0SQ4IDVDQOUrLsLarveYhQZlNycLONKmoyNipbco5BSgw0CjDl1SYYGcSMd_XSc4Voh1ou1SHBWkPIw-wSKPjveZPf4yV90mREnih95CmmItb2RZt/s1600/Log+On+As+Batch+Job.png)
+[![](/images/Log On As Batch Job.png)](/images/Log On As Batch Job.png)
 
 **Figure 4:** Shows the default permissions and user rights for IIS 7.0, IIS 7.5, and IIS 8.0
 

@@ -3,6 +3,8 @@ title: "Proxy Server Settings for SharePoint 2007"
 date: 2010-04-21T21:12:00+0000
 categories: ["SharePoint"]
 tags: ["Web Config", "Proxy Settings"]
+aliases:
+  - "/2010/04/proxy-server-settings-for-sharepoint.html"
 legacy: true
 ---
 

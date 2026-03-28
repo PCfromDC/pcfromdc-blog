@@ -3,6 +3,8 @@ title: "Provisioning SQL Server Always-On Without Rights"
 date: 2015-07-03T00:37:00+0000
 categories: ["PowerShell", "SQL"]
 tags: ["SQL 2012", "Always-On", "Group Listeners", "HADRON", "Computer Object", "Active Directory"]
+aliases:
+  - "/2015/07/provisioning-sql-server-always-on.html"
 legacy: true
 ---
 

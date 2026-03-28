@@ -3,6 +3,8 @@ title: "Backup and Restore SQL User Databases Using PowerShell"
 date: 2016-01-29T02:31:00+0000
 categories: ["PowerShell", "SQL"]
 tags: ["SSMS", "Databases", "BackUp", "Database", "Restore"]
+aliases:
+  - "/2016/01/backup-and-restore-sql-user-databases.html"
 legacy: true
 ---
 

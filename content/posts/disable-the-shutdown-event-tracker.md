@@ -2,6 +2,8 @@
 title: "Disable the Shutdown Event Tracker"
 date: 2011-07-31T02:18:00+0000
 draft: true
+aliases:
+  - "/2011/07/disable-the-shutdown-event-tracker.html"
 legacy: true
 ---
 

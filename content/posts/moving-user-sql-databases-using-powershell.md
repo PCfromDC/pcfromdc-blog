@@ -3,6 +3,8 @@ title: "Moving User SQL Databases Using PowerShell"
 date: 2015-12-30T17:33:00+0000
 categories: ["PowerShell", "SQL"]
 tags: ["Database", "ACL"]
+aliases:
+  - "/2015/12/moving-user-sql-databases-using.html"
 legacy: true
 ---
 

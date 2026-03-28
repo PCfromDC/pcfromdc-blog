@@ -2,6 +2,8 @@
 title: "SharePoint 2007 Create A New Site Collection In A New DB"
 date: 2011-06-30T02:34:00+0000
 draft: true
+aliases:
+  - "/2011/06/sharepoint-2007-create-a-new-site.html"
 legacy: true
 ---
 

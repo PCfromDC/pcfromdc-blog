@@ -2,6 +2,8 @@
 title: "Backing Up SharePoint 2010"
 date: 2011-09-29T03:33:00+0000
 draft: true
+aliases:
+  - "/2011/09/backing-up-sharepoint-2010.html"
 legacy: true
 ---
 

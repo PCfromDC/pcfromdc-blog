@@ -3,6 +3,8 @@ title: "Backing Up SQL DBs Using PowerShell"
 date: 2012-02-17T04:23:00+0000
 categories: ["PowerShell", "SQL"]
 tags: ["BackUp"]
+aliases:
+  - "/2012/02/backing-up-sql-dbs-using-powershell.html"
 legacy: true
 ---
 

@@ -3,6 +3,8 @@ title: "PowerShell for Microsoft Azure- Getting Started"
 date: 2015-01-16T04:23:00+0000
 categories: ["PowerShell", "Azure"]
 tags: ["Getting Started", "PowerShell v5", "Introduction", "Infrastructure"]
+aliases:
+  - "/2015/01/powershell-for-microsoft-azure-getting.html"
 legacy: true
 ---
 
@@ -10,13 +12,13 @@ legacy: true
 
 This is part 2 of the blog series on getting Started with Microsoft Azure.
 
-Part 1: [Microsoft Azure- Getting Started](http://pcfromdc.blogspot.com/2014/12/microsoft-azure-getting-started.html)
+Part 1: [Microsoft Azure- Getting Started](/posts/microsoft-azure-getting-started/)
 
 Part 2: PowerShell for Microsoft Azure- Getting Started  (This post)
 
-Part 3: [Microsoft Azure- Create Geo Redundancy and Virtual Networks](http://pcfromdc.blogspot.com/2015/01/microsoft-azure-create-geo-redundancy.html)
+Part 3: [Microsoft Azure- Create Geo Redundancy and Virtual Networks](/posts/microsoft-azure-create-geo-redundancy/)
 
-Part 4: [PowerShell for Microsoft Azure- Creating Storage](http://pcfromdc.blogspot.com/2015/01/powershell-for-microsoft-azure-creating.html) 
+Part 4: [PowerShell for Microsoft Azure- Creating Storage](/posts/powershell-for-microsoft-azure-creating/) 
 
 Part 5: PowerShell for Microsoft Azure- Upload VHD Images (In Progress)
 
@@ -33,7 +35,7 @@ Let's Get Started
 
 The first thing that is required is to download the Azure module for PowerShell. Personally, I prefer to go through the Web Platform Installer (WPI). The current version of WPI is 5, and can be downloaded from [http://www.microsoft.com/web/downloads/platform.aspx](http://www.microsoft.com/web/downloads/platform.aspx). Go ahead and run the installation and once WPI opens up, search for Microsoft Azure PowerShell. Depending on what you want to do, you may wish to install just PowerShell for Azure or you may choose to install the SDK as well. For this example, we are going to install Microsoft Azure PowerShell (Standalone) and Visual Studio Community 2013 with Microsoft Azure SDK- 2,5.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhK_h7YBTbAitSyJfLqY1RFeYtG0TmnvnlMwLwsnJYTTfXVCBD7LsH0UUhDJ_sVKYwjtoM0lX7UbupLXUI5F8Qle_29NOyyMFybyu4IJTjWVygiBltylHS63fVlqKQkeLviQTzNZ4i9PPgS/s1600/1-+install.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhK_h7YBTbAitSyJfLqY1RFeYtG0TmnvnlMwLwsnJYTTfXVCBD7LsH0UUhDJ_sVKYwjtoM0lX7UbupLXUI5F8Qle_29NOyyMFybyu4IJTjWVygiBltylHS63fVlqKQkeLviQTzNZ4i9PPgS/s1600/1-+install.png)
+[![](/images/1- install.png)](/images/1- install.png)
 
 #### 
 Open Up PowerShell ISE
@@ -42,7 +44,7 @@ For this demonstration, we will be using PowerShell ISE v5 on Windows 10 (beta).
 
 After opening ISE as Administrator, go to the commands add-on section and make sure that the Azure Module is installed.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZz6__O0ylrqkEJPFlUeLw4bhXeqN0d2wgJpLQzkp7voUB8Ne2FAcns07QQgyPBU3hZPjY26Sx59A1nI1OC2tcJZ31q16Z-e5aZs7WJFfB_nqdfRM7zNoLBM2KJoE3dgkhusZfONzIaHBi/s1600/2-+Validate.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZz6__O0ylrqkEJPFlUeLw4bhXeqN0d2wgJpLQzkp7voUB8Ne2FAcns07QQgyPBU3hZPjY26Sx59A1nI1OC2tcJZ31q16Z-e5aZs7WJFfB_nqdfRM7zNoLBM2KJoE3dgkhusZfONzIaHBi/s1600/2-+Validate.png)
+[![](/images/2- Validate.png)](/images/2- Validate.png)
 
 Typically, when I work with PowerShell, the first thing that I will do is create a Scripts folder on a local drive to store my scripts, however we will be using the Scrips folder for storing passwords as well. 
 
@@ -95,7 +97,7 @@ To validate the account running the PowerShell commands, run
 Get-AzureAccount
 ```
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMBpDLZaZD1uCURbGmfgmr2Ji0fZb9C9PT5EY28_PFKxSu6vjc-539DDyoUFCDvzM2RmItmb7rn7GLV38ZUMKnbI0mFqwvIUrjIppaV5jPnSqQVbYmUb_6-InNTo81n37PD9JkdB_KerwZ/s1600/3-+Get+1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMBpDLZaZD1uCURbGmfgmr2Ji0fZb9C9PT5EY28_PFKxSu6vjc-539DDyoUFCDvzM2RmItmb7rn7GLV38ZUMKnbI0mFqwvIUrjIppaV5jPnSqQVbYmUb_6-InNTo81n37PD9JkdB_KerwZ/s1600/3-+Get+1.png)
+[![](/images/3- Get 1.png)](/images/3- Get 1.png)
 
 If you have multiple Azure subscriptions, you will have to set the Azure subscription that you are working on, so that you do not accidentally do work in the wrong place.
 
@@ -113,18 +115,18 @@ What's Next
 
 Your options on what to do within Azure are truly limitless as long as you stay within your $200 free trail or within the budget of your organization. Most organizations start simple using Azure for High Availability and Disaster Recovery of AD and DNS services. So, the next steps would be to map out what data centers you plan on utilizing to host your servers and document a network class and IP range for each region. You can find information about data center locations at [http://azure.microsoft.com/en-us/regions/](http://azure.microsoft.com/en-us/regions/)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_hfE0KSCoMQeO0BUgf2PgPLDSIkx0IYeFz8mBmp1Z4ZrM-cA2WrHZm2JmLOjsaj1oSutgWwzfmq0YLuzy38WVXHuoAGKm88icIO_1B1ukgqFebWEeQYCYnefPUG22j76ZFDm4yJ8uq9dl/s1600/3-+data+center+locations.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_hfE0KSCoMQeO0BUgf2PgPLDSIkx0IYeFz8mBmp1Z4ZrM-cA2WrHZm2JmLOjsaj1oSutgWwzfmq0YLuzy38WVXHuoAGKm88icIO_1B1ukgqFebWEeQYCYnefPUG22j76ZFDm4yJ8uq9dl/s1600/3-+data+center+locations.png)
+[![](/images/3- data center locations.png)](/images/3- data center locations.png)
 
 #### 
 Geo Redundant Strategy and Subnets
 
 Since Contoyso has determined that it will be using Azure for high availability and disaster recover for Active Directory and DNS, here is a map of the data centers chosen and IP ranges selected.. 
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAQ93Kl_2yWZpho9EA0V7c6-6lWcvRImCembCRBqicSJ_QV1SaMLOKEUfv16UhvZ6Ragsfgio1hpfTL1xcA128oGKZYLTtlKkEYqMTeIV_aqgLN9CaTbQPCg6d2IAzaESZ-etIWahipIvB/s1600/4-+Azure+Infrastructure.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAQ93Kl_2yWZpho9EA0V7c6-6lWcvRImCembCRBqicSJ_QV1SaMLOKEUfv16UhvZ6Ragsfgio1hpfTL1xcA128oGKZYLTtlKkEYqMTeIV_aqgLN9CaTbQPCg6d2IAzaESZ-etIWahipIvB/s1600/4-+Azure+Infrastructure.png)
+[![](/images/4- Azure Infrastructure.png)](/images/4- Azure Infrastructure.png)
 
 Having your mappings done ahead of time will make life easier when it comes to configuring your networks.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwXXkNlr8GNv3rzduroTcerSqJ7ijyuF10PNDMNAfoFhiy1LiHvm8XgN1G05dSsWH5Re4UKaDajhfH6XjsVpB5iEB7W4X1eWuIt7PMBvqMMfScr69eF-cKOmDjha7ve_7AoMoMOXlon_82/s1600/8-+Network+Info.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwXXkNlr8GNv3rzduroTcerSqJ7ijyuF10PNDMNAfoFhiy1LiHvm8XgN1G05dSsWH5Re4UKaDajhfH6XjsVpB5iEB7W4X1eWuIt7PMBvqMMfScr69eF-cKOmDjha7ve_7AoMoMOXlon_82/s1600/8-+Network+Info.png)
+[![](/images/8- Network Info.png)](/images/8- Network Info.png)
 You can download the Excel file from [http://1drv.ms/1xvEfcW](http://1drv.ms/1xvEfcW)
 
 Stay tuned for the next blog post on creating geo-redundancy and virtual network in Azure (the picture above)...

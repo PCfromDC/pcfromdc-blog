@@ -2,6 +2,8 @@
 title: "PowerShell for Microsoft Azure- Upload VHD Images"
 date: 2015-04-04T19:01:00+0000
 draft: true
+aliases:
+  - "/2015/04/powershell-for-microsoft-azure-upload.html"
 legacy: true
 ---
 

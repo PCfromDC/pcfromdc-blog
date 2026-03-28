@@ -2,6 +2,8 @@
 title: "Restore SQL DBs Using PowerShell"
 date: 2012-03-06T06:13:00+0000
 categories: ["PowerShell", "SQL"]
+aliases:
+  - "/2012/03/restore-sql-dbs-using-powershell.html"
 legacy: true
 ---
 

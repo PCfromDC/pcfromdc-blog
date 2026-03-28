@@ -2,6 +2,8 @@
 title: "Azure DevOps Server Deployment... In Azure!"
 date: 2019-11-02T18:28:00+0000
 draft: true
+aliases:
+  - "/2019/11/azure-devops-server-deployment-in-azure.html"
 legacy: true
 ---
 

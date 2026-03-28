@@ -3,6 +3,8 @@ title: "How to Maintain an Azure Site-to-Site (S2S) Connection with a Dynamic IP
 date: 2017-12-15T21:25:00+0000
 categories: ["PowerShell", "Azure"]
 tags: ["RRAS", "VPN", "S2S", "Site to Site"]
+aliases:
+  - "/2017/12/how-to-maintain-an-azure-site-to-site.html"
 legacy: true
 ---
 

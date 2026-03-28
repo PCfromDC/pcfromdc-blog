@@ -3,6 +3,8 @@ title: "Creating a Central Admin Desktop Shortcut Using PowerShell"
 date: 2011-07-04T17:21:00+0000
 categories: ["PowerShell", "SharePoint"]
 tags: ["SharePoint 2010", "Central Admin"]
+aliases:
+  - "/2011/07/creating-a-central-admin-desktop.html"
 legacy: true
 ---
 

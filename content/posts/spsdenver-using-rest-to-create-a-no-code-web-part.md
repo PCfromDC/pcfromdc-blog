@@ -2,6 +2,8 @@
 title: "SPSDenver: Using REST to Create A No Code Web Part"
 date: 2011-11-12T21:29:00+0000
 tags: ["Presentations", "REST"]
+aliases:
+  - "/2011/11/spsdenver-using-rest-to-create-a-no.html"
 legacy: true
 ---
 

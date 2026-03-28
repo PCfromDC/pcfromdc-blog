@@ -3,6 +3,8 @@ title: "Getting Your SharePoint Farm Information"
 date: 2012-10-21T03:25:00+0000
 categories: ["PowerShell", "SharePoint"]
 tags: ["SharePoint 2010", "SharePoint 2013", "BackUp", "Documentation", "Upgrade"]
+aliases:
+  - "/2012/10/getting-your-sharepoint-farm.html"
 legacy: true
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: "About Me"
 date: 2020-02-21T13:47:00+0000
+aliases:
+  - "/2020/02/about-me.html"
 legacy: true
 ---
 

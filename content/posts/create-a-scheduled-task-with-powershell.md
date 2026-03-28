@@ -3,6 +3,8 @@ title: "Create a Scheduled Task With PowerShell"
 date: 2013-11-29T15:30:00+0000
 categories: ["PowerShell"]
 tags: ["Windows Server 2012", "Task Scheduler", "OS"]
+aliases:
+  - "/2013/11/create-a-scheduled-task-with-powershell.html"
 legacy: true
 ---
 
@@ -49,16 +51,16 @@ There are a bunch of properties that can be tweaked when creating a scheduled ta
 ### 
 Results:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgch-Gecew6xuNbZ7V7pL5qeONwIGrzwx1_ekjKQmSO94GeyJ-p0F6D1swftKT5Tr3YS4k89-9xIGywhT8UadIV2Z1fpMQbit8j1yqG_d1cknND3qm1z5tNznVMbW4KSUuITHXd5IfEieCS/s640/Task+Created.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgch-Gecew6xuNbZ7V7pL5qeONwIGrzwx1_ekjKQmSO94GeyJ-p0F6D1swftKT5Tr3YS4k89-9xIGywhT8UadIV2Z1fpMQbit8j1yqG_d1cknND3qm1z5tNznVMbW4KSUuITHXd5IfEieCS/s1600/Task+Created.png)
+[![](/images/Task Created.png)](/images/Task Created.png)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGOIUiFoldGBHKq0AKaKT8Wi8tCn_4xZTBT5WrwKq-gadDrQjEtMamZ00bqbNUBydw8kgEm3OfYPbP22OS3PH2PKbIZrj6r5kgkz9rZv5rWl0jkdHrhbsj68dy8iCZQ6fBWgZJEx2sokn7/s640/General.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGOIUiFoldGBHKq0AKaKT8Wi8tCn_4xZTBT5WrwKq-gadDrQjEtMamZ00bqbNUBydw8kgEm3OfYPbP22OS3PH2PKbIZrj6r5kgkz9rZv5rWl0jkdHrhbsj68dy8iCZQ6fBWgZJEx2sokn7/s1600/General.png)
+[![](/images/General.png)](/images/General.png)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6BPRO3kPpj_-JKbjRureNxYqKIe69Tjv5XG-OVM0gl_DSES_P1B9dAg7jdzcGTh2G3AVB10Psxwe01WkgX95w4X1mJV41rtQBmoiUYZ_l5P5x8VfQIU0Nt6HOOaop-X2JjknI_Kpshc6O/s640/Triggers.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6BPRO3kPpj_-JKbjRureNxYqKIe69Tjv5XG-OVM0gl_DSES_P1B9dAg7jdzcGTh2G3AVB10Psxwe01WkgX95w4X1mJV41rtQBmoiUYZ_l5P5x8VfQIU0Nt6HOOaop-X2JjknI_Kpshc6O/s1600/Triggers.png)
+[![](/images/Triggers.png)](/images/Triggers.png)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijfM0tEIVNgA2UgOOJM_8ngNAWSY6az5UDQRgv9tMau93oWu8wlMz57SprcHmJNJnPTVJm9tKmopbKk9-iwVv0gn0e15z9XXP-MyZq81b53MB9jYQIcwy79daYr1EkLkCwL4jUtDYRtE_t/s640/Actions.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijfM0tEIVNgA2UgOOJM_8ngNAWSY6az5UDQRgv9tMau93oWu8wlMz57SprcHmJNJnPTVJm9tKmopbKk9-iwVv0gn0e15z9XXP-MyZq81b53MB9jYQIcwy79daYr1EkLkCwL4jUtDYRtE_t/s1600/Actions.png)
+[![](/images/Actions.png)](/images/Actions.png)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcV_bg6Z5XcRy6vw8LPQq_CeZmx_b31EZt__OssDI0sJk754oLH8NR5FMU87M7_rn0-_L67-Im4psvOhrxXLDsc84TJk6OkMfqP2bqh68CVqDx8QMmwprfhu1Q0PDwaUKjR8jlxbiZXl7I/s640/Conditions.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcV_bg6Z5XcRy6vw8LPQq_CeZmx_b31EZt__OssDI0sJk754oLH8NR5FMU87M7_rn0-_L67-Im4psvOhrxXLDsc84TJk6OkMfqP2bqh68CVqDx8QMmwprfhu1Q0PDwaUKjR8jlxbiZXl7I/s1600/Conditions.png)
+[![](/images/Conditions.png)](/images/Conditions.png)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvZH3vvggBDh6kLrN-1SkQLkIrEzdZ5DWiNcf9uFXEDE3DOmT6D7FLtKxFzD7IQMJtmJv11w3DmtJonxhgVMz6LSIsxg8Rm5I0FB0Erb6xedKcB1_hW-gxa5ta25xWkk2h3Dyo_pL7mhyphenhyphen/s640/Settings.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIvZH3vvggBDh6kLrN-1SkQLkIrEzdZ5DWiNcf9uFXEDE3DOmT6D7FLtKxFzD7IQMJtmJv11w3DmtJonxhgVMz6LSIsxg8Rm5I0FB0Erb6xedKcB1_hW-gxa5ta25xWkk2h3Dyo_pL7mhyphenhyphen/s1600/Settings.png)
+[![](/images/Settings.png)](/images/Settings.png)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbC-wB1THejNzlSI7MRjVrXh0sA2Ha7mMdpXqbQXU-2bALrHf8f1LytI-DA4052uJqoCUPrA3b92x8Q1IZtUCf1cHk6M6NlXrAxJT8UfY4KVCKV0RzAuo2XdbrhK5UKeIJS_xgkzSAMkbX/s640/History.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbC-wB1THejNzlSI7MRjVrXh0sA2Ha7mMdpXqbQXU-2bALrHf8f1LytI-DA4052uJqoCUPrA3b92x8Q1IZtUCf1cHk6M6NlXrAxJT8UfY4KVCKV0RzAuo2XdbrhK5UKeIJS_xgkzSAMkbX/s1600/History.png)
+[![](/images/History.png)](/images/History.png)

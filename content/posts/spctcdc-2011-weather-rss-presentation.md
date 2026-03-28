@@ -2,6 +2,8 @@
 title: "SPCTCDC 2011 Weather RSS Presentation"
 date: 2011-08-12T23:35:00+0000
 tags: ["RSS", "SPSTCDC", "Presentations"]
+aliases:
+  - "/2011/08/spctcdc-2011-weather-rss-presentation.html"
 legacy: true
 ---
 

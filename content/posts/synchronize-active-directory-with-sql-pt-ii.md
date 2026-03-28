@@ -3,6 +3,8 @@ title: "Synchronize Active Directory With SQL pt II"
 date: 2013-11-27T19:36:00+0000
 categories: ["PowerShell", "SQL"]
 tags: ["SQL 2012", "Synchronization", "Active Directory"]
+aliases:
+  - "/2013/11/synchronize-active-directory-with-sql.html"
 legacy: true
 ---
 
@@ -18,7 +20,7 @@ Requirements
 
 I have created this in PowerShell ISE version 3.0 on Windows Server 2012 and SQL Server 2012. The person running the script should have permissions to create and write into SQL, and read items from AD. You will need to have the SQLPS module and the ActiveDirectory modules installed. The SQL module should be installed when you install SSMS, and you can add the ActiveDirectory module by activating the feature through the Add Roles and Features Wizard:
 
-[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8xZdBSQmdR_gtqVNKLeyPhKrWVeCML15HdTbfAhef3LAwL5d9ma1hF1pF6UiHmOuPqvnImnIPK8yAphgr57Awtt9LTpJ8047f2v8f1Plg52bcTrUXg9jSniYUzMEO7TH4ztXcIWROxcBE/s1600/Add+AD+Feature.png)
+[*](/images/Add AD Feature.png)
 You should also have a database and a table in place to save all of your Production User Data. I created a database name "pcDemo_Personnel" and this is the table that I will  use for this post:
 
 ```
@@ -63,7 +65,7 @@ GO
 ```
 
 Getting User Information from AD
-To query Active Directory, we will be using the [Get-ADUser cmdlet](http://technet.microsoft.com/en-us/library/ee617241.aspx), and as we learned from my previous post, [Sync Active Direcory to SQL](http://pcfromdc.blogspot.com/2011/01/sync-active-directory-to-sql_17.html), lastLogon time is stored on each Domain Controller so we will need to query each server to get each person's lastLogon time. We will query each server by creating an array of Domain Controller server names, and query each server in the array. For example, to query the first server in the array, you would use the following command which will return all properties for each user and put the returned data into the Variable $Users:
+To query Active Directory, we will be using the [Get-ADUser cmdlet](http://technet.microsoft.com/en-us/library/ee617241.aspx), and as we learned from my previous post, [Sync Active Direcory to SQL](/posts/sync-active-directory-to-sql_17/), lastLogon time is stored on each Domain Controller so we will need to query each server to get each person's lastLogon time. We will query each server by creating an array of Domain Controller server names, and query each server in the array. For example, to query the first server in the array, you would use the following command which will return all properties for each user and put the returned data into the Variable $Users:
 
 ```
 $Users = Get-ADUser -Filter * -Server $OUs[0] -Properties *
@@ -135,10 +137,10 @@ foreach ($user in $Users)
 
 Within the script, I put some time tracking in an Out-File so that I could track the Get-ADUser query time (proof for the AD Team if needed), as well as the time it takes to insert/update SQL. My times returned were pretty horrible...
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8gjUFl6I-y1WA6EKQ8FolcEUagwY_KSQ7hIEGTaAzAMDtIF8lq3IX9dunqRnBdUalqsu8OYppnveZV7eTgd4BNWjZgCM0k9QmEdCu3RyHszAMXoPGmldrxTdXL9aS5D_InV-B3DyOGKIZ/s640/Slow+Query.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8gjUFl6I-y1WA6EKQ8FolcEUagwY_KSQ7hIEGTaAzAMDtIF8lq3IX9dunqRnBdUalqsu8OYppnveZV7eTgd4BNWjZgCM0k9QmEdCu3RyHszAMXoPGmldrxTdXL9aS5D_InV-B3DyOGKIZ/s1600/Slow+Query.png)
+[![](/images/Slow Query.png)](/images/Slow Query.png)
 This method of running the insert and update SQL queries also brought up another issue:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuI1TnLY75MfZv8MHo3apWRsxIZU4ok4sSN1oIjOd9biLc8JlyfPZdjP1900i165_SyHKfQZTYKO9Qq1A_JjfED2I90lDtryeCnA2QJgqh_qK_I9uJa0Zv-iziw_Ucp09TLMnZ3QsJQd9j/s640/O'Connor+Error.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuI1TnLY75MfZv8MHo3apWRsxIZU4ok4sSN1oIjOd9biLc8JlyfPZdjP1900i165_SyHKfQZTYKO9Qq1A_JjfED2I90lDtryeCnA2QJgqh_qK_I9uJa0Zv-iziw_Ucp09TLMnZ3QsJQd9j/s1600/O'Connor+Error.png)
+[![](/images/1- Subscription(1).png'Connor+Error.png)](/images/1- Subscription(1).png'Connor+Error.png)
 Because there are people in Active Directory with single apostrophes in their name like Mr. O'Connor, I would have to come up with a work around for any property value that has an apostrophe in it. Luckily, the time to completion is so horrible that I figured solving for an apostrophe should be pretty simple and will address this issue at a later date.
 
 If you recall, another issue with dealing with the lastLogin property is that the lastLogon time is "number of 100 nanosecond intervals since January 1, 1601 (UTC)" To solve this issue, I created a function with a foreach to take care of cleaning up the lastLogon time and converting it to a dateTime in UTC (Zulu):
@@ -165,7 +167,7 @@ Putting User Information into SQL (Attempt #3)
 
 After reading through both blog posts mentioned above, I had an understanding of what needed to be done. I added the new functions to my script and commented out the foreach lastLogon cleanup loop to pass just raw data into the DataTable and into SQL. I gave it a run, and ran into an issue:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtF9-w3_WXac117QvDr1HpjVJ84kTG36DBiFc3yL2DeBzKM_CV1LsZjccGoOEjZsxHe5b17jcRPJUX9PidO7gaV-akPjFHa0JubJBCy2ud5G2mBZRVBbX69swQXMeJoIhaGEeL9w7zwtec/s640/Table+Column+Errors.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtF9-w3_WXac117QvDr1HpjVJ84kTG36DBiFc3yL2DeBzKM_CV1LsZjccGoOEjZsxHe5b17jcRPJUX9PidO7gaV-akPjFHa0JubJBCy2ud5G2mBZRVBbX69swQXMeJoIhaGEeL9w7zwtec/s1600/Table+Column+Errors.png)
+[![](/images/Table Column Errors.png)](/images/Table Column Errors.png)
 Taking a look at the errors, the columns not belonging in the table are found in the returned properties of the Get-ADUser cmdlet. The current query looks like this:
 
 ```
@@ -184,13 +186,13 @@ $users = Get-ADUser -Filter * -Server $ouServer -Properties (foreach{$properties
 
 Ran the script again and received a new error:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7jucdC6uqYrYbnVXpzhp2mVnDEdj1ZtZsTTSfav1TGBRuhlRkOnSAz_tkfnXRpjd-xdxExe3495QwT5X6P8SU2-FIo9rmxGUxI11kEHYVLyswTH5pm8r7IClq9PnpDDDUpIyF0m9XMlC-/s640/lastLogon+Null+Error.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7jucdC6uqYrYbnVXpzhp2mVnDEdj1ZtZsTTSfav1TGBRuhlRkOnSAz_tkfnXRpjd-xdxExe3495QwT5X6P8SU2-FIo9rmxGUxI11kEHYVLyswTH5pm8r7IClq9PnpDDDUpIyF0m9XMlC-/s1600/lastLogon+Null+Error.png)
+[![](/images/lastLogon Null Error.png)](/images/lastLogon Null Error.png)
 I un-commented out the foreach lastLogon cleanup loop and tried again. Things seemed to be running, so off I went for coffee, and when I returned, the script had run its course... cleanly. SQL looked like this:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt5vErc9Je4_8nWqejKaEN86oQhFSo0j5EkY7H74n2u3qhJ2H5W0-HhKsIbI2c4vnZpr_-xEGiN_Ela91H9jXQFTOWtAm2G_rBxhzNyZTke89cprNz_P5zjGxCHeIcCQg0ueS2qvllRJZd/s640/SQL+Finished.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt5vErc9Je4_8nWqejKaEN86oQhFSo0j5EkY7H74n2u3qhJ2H5W0-HhKsIbI2c4vnZpr_-xEGiN_Ela91H9jXQFTOWtAm2G_rBxhzNyZTke89cprNz_P5zjGxCHeIcCQg0ueS2qvllRJZd/s1600/SQL+Finished.png)
+[![](/images/SQL Finished.png)](/images/SQL Finished.png)
 Now it did not take me 3 hours to drink my coffee, so lets look at the actual run time:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX2EtF_L5P5HUAHDfQD1udGdx-WBrTDvpuGo18hb5Y7mYHewoVdQ_mxCrN2fOFJTKhq_mAGyEqj2ceQnTh1and-URtZ8sgoHkb2lhjYNrwvmbreMCLtKlM2jCggzOjctVwkaOQjxbA9wVX/s640/Fast+Query.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX2EtF_L5P5HUAHDfQD1udGdx-WBrTDvpuGo18hb5Y7mYHewoVdQ_mxCrN2fOFJTKhq_mAGyEqj2ceQnTh1and-URtZ8sgoHkb2lhjYNrwvmbreMCLtKlM2jCggzOjctVwkaOQjxbA9wVX/s1600/Fast+Query.png)
+[![](/images/Fast Query.png)](/images/Fast Query.png)
 Holy COW look at those numbers! This process saved 3 hours, 4 minutes, and 18 seconds!
 
 Now that we are able to load User data into SQL, it is time to put the rest of the script together, like Drop the Temp Tables, Set the Get-ADUser -Filter, and move the data from the Temp Tables into the Master AD Users Table.
@@ -381,10 +383,10 @@ Invoke-Sqlcmd -Query $query13 -Database $databaseName -ServerInstance $dbServer
 
 Now that the solution is completed, let's look at the time to query 3 domain controllers:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjg03egcb1pbveVm64ZbbRg8m7Yanu0CnUAA8MslKJ7y97ym4ICD_X8SEtu7Nyamof-X9uFOuBzK7jPt7KMH_SHwPFI3DsDuh_DsMgAPF-BLa4dbwOGY99eurDfrEkfIPifEPiYTobm6ak8/s640/Final+3+DC+Query.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjg03egcb1pbveVm64ZbbRg8m7Yanu0CnUAA8MslKJ7y97ym4ICD_X8SEtu7Nyamof-X9uFOuBzK7jPt7KMH_SHwPFI3DsDuh_DsMgAPF-BLa4dbwOGY99eurDfrEkfIPifEPiYTobm6ak8/s1600/Final+3+DC+Query.png)
+[![](/images/Final 3 DC Query.png)](/images/Final 3 DC Query.png)
  And if we take a look at the single DC query:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvD99_cryPj04l4gske4hgBvF6tUu12pkmIyREAMzvPY4RznwT-Cr8SHCwp9oZ2XP1_XTk1Z0O-GgpVDeCs_waiCxMx7w7KtX5mBKDRMnHygIyuD7s0ScSli7dqqca-RzgY59K_uJ3-pJ4/s640/Final+1+DC+Query.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvD99_cryPj04l4gske4hgBvF6tUu12pkmIyREAMzvPY4RznwT-Cr8SHCwp9oZ2XP1_XTk1Z0O-GgpVDeCs_waiCxMx7w7KtX5mBKDRMnHygIyuD7s0ScSli7dqqca-RzgY59K_uJ3-pJ4/s1600/Final+1+DC+Query.png)
+[![](/images/Final 1 DC Query.png)](/images/Final 1 DC Query.png)
 So based off the data above, there is a run time average of approximately 1.75 minutes per DC queried when dealing with 28782 users.
 
 You can download the complete code from [GitHub:](https://raw.github.com/PCfromDC/AD2SQL/master/README.md)
@@ -393,9 +395,9 @@ Create The Timer Job
 
 Now that we can synchronize all users from AD into SQL, we need to create a scheduled task to run our PowerShell script to keep SQL synchronized on a regular basis. Now, this can be run daily or every couple of hours pending on how your organization works.
 
-Please review my post on [Creating a Scheduled Task With PowerShell](http://pcfromdc.blogspot.com/2013/11/create-scheduled-task-with-powershell.html).
+Please review my post on [Creating a Scheduled Task With PowerShell](/posts/create-scheduled-task-with-powershell/).
 
-However, what if the server Admin will not allow you to create a timer job using the Task Scheduler? Luckily, a colleague of mine, Don Kirham ([@DonKirkham](https://twitter.com/DonKirkham)) posed a similar question on our company's Yammer site. Don wanted to know if it was possible to use SQL Server Agent jobs to run the job instead. The answer is, yes you can, but it is not as straight forward as one would like. You can read how to run this the Sync AD to SQL script from a SQL Server Agent Job from my blog post called [Run a PowerShell v3 Script From a SQL Server Agent Job](http://pcfromdc.blogspot.com/2014/01/run-powershell-v3-script-from-sql.html)
+However, what if the server Admin will not allow you to create a timer job using the Task Scheduler? Luckily, a colleague of mine, Don Kirham ([@DonKirkham](https://twitter.com/DonKirkham)) posed a similar question on our company's Yammer site. Don wanted to know if it was possible to use SQL Server Agent jobs to run the job instead. The answer is, yes you can, but it is not as straight forward as one would like. You can read how to run this the Sync AD to SQL script from a SQL Server Agent Job from my blog post called [Run a PowerShell v3 Script From a SQL Server Agent Job](/posts/run-powershell-v3-script-from-sql/)
 
 UPDATES:
 

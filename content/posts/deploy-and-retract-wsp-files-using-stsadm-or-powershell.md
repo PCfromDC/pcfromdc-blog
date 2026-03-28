@@ -3,6 +3,8 @@ title: "Deploy and Retract .wsp Files using STSADM or PowerShell"
 date: 2011-03-28T16:36:00+0000
 categories: ["PowerShell", "SharePoint"]
 tags: ["STSADM", "SharePoint 2007", "WSP Files"]
+aliases:
+  - "/2011/03/deploy-and-retract-wsp-files-using.html"
 legacy: true
 ---
 

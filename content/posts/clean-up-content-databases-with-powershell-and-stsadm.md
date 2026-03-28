@@ -2,6 +2,8 @@
 title: "Clean Up Content Databases with PowerShell and STSADM"
 date: 2011-07-21T14:26:00+0000
 draft: true
+aliases:
+  - "/2011/07/clean-up-content-databases-with.html"
 legacy: true
 ---
 

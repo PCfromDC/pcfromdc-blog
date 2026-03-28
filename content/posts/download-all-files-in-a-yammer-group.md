@@ -2,6 +2,8 @@
 title: "Download All Files in a Yammer Group!"
 date: 2016-06-21T01:31:00+0000
 tags: ["Download All Files", "Chrome", "File Download", "Yammer", "JavaScript"]
+aliases:
+  - "/2016/06/download-all-files-in-a-yammer-group.html"
 legacy: true
 ---
 

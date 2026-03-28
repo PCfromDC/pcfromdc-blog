@@ -3,6 +3,8 @@ title: "Creating File Shares in Azure using PowerShell"
 date: 2017-04-04T01:54:00+0000
 categories: ["PowerShell", "Azure"]
 tags: ["File Share", "Azure Storage"]
+aliases:
+  - "/2017/04/creating-file-shares-in-azure-using.html"
 legacy: true
 ---
 
@@ -24,7 +26,7 @@ Notice in line 15, I grab the Scheduled Job's Path so that I can grab and update
 
 All in all a very cool, and quick way to add 5TB of storage to my Surface Pro.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii5OBHuWSBe_SrjW8OlsFSad6hGavLCR1gMiI5HdiTeqMTgXNWFmJXb5Vv7gTaDwZUCFhZ1MCaEjsrYx_Z5kdWuGiPOZGSUBtd8m6Jgh-aXQstwu8wsOrQU1vRPxS7A_D79mD8kp9AQW7J/s400/X-Drive.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii5OBHuWSBe_SrjW8OlsFSad6hGavLCR1gMiI5HdiTeqMTgXNWFmJXb5Vv7gTaDwZUCFhZ1MCaEjsrYx_Z5kdWuGiPOZGSUBtd8m6Jgh-aXQstwu8wsOrQU1vRPxS7A_D79mD8kp9AQW7J/s1600/X-Drive.png)
+[![](/images/X-Drive.png)](/images/X-Drive.png)
 I could not think of any other reasons why an Enterprise would want a file share in Azure (from a corporate perspective) with the availability of SharePoint Online or OneDrive for Business, but then a client asked me how to send me their bloated SQL Database... You would send your client something like this:
 
 Once they upload the file, you would then create a new key for the storage account.

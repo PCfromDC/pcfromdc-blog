@@ -3,6 +3,8 @@ title: "SharePoint and FIPS Exceptions"
 date: 2015-06-28T22:29:00+0000
 categories: ["PowerShell", "SharePoint"]
 tags: ["Algorithms", "Cryptographic", "FIPS"]
+aliases:
+  - "/2015/06/sharepoint-and-fips-exceptions.html"
 legacy: true
 ---
 
@@ -11,7 +13,7 @@ legacy: true
 A couple of weeks ago, I started a "Greenfield" implementation of SharePoint 2013 for a client. This organization has SharePoint 2003, 2007, 2010 already existing in their environment, so I ignorantly figured that the installation should go pretty smoothly.**
 All of the SharePoint and SQL bits installed correctly, however when trying to provision Central Administration, I ran into an issue where I was not able to create the config database:
 
-[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWl93Di_nhpY4XbnWtaqQSwC3ubG0nj0ZZFGHwkGEb76WrqcL7Y_Vv2U-Zx7ZpQwbxIU69aqTdBBDWGqtE2CBbA9HQwZWWcWJ8fSPhl_4TK_Ysm7r8iJnW4V8vnIzXi0421AZMNrIDWZp6/s1600/Config+Error.png)
+[*](/images/Config Error.png)
 
 ### 
 What is FIPS?
@@ -24,7 +26,7 @@ FIPS stands for the Federal Information Processing Standards**, and is used for 
 
 In essence, FIPS 140-2 is a standard that can be tested against and certified so that the server is hardened up to a government standard. Currently, the US is not the only government that uses the FIPS standard for server hardening. The FIPS Local/Group Security Policy Flag can be found here:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHWa2EjXM0jEhGz5edJK2rV-8dSY7jqW3y2ixthPBmE2XplXxqKXl9VIvnuylLXOlWJ_uNeyyxAdtJeK3bikoaD4fYS-LPhi2nZ7OCw4PxwaJ6IaFPxT9r3ee49KYDfelfTqfkp0kqD079/s640/enable+FIPS.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHWa2EjXM0jEhGz5edJK2rV-8dSY7jqW3y2ixthPBmE2XplXxqKXl9VIvnuylLXOlWJ_uNeyyxAdtJeK3bikoaD4fYS-LPhi2nZ7OCw4PxwaJ6IaFPxT9r3ee49KYDfelfTqfkp0kqD079/s1600/enable+FIPS.png)
+[![](/images/enable FIPS.png)](/images/enable FIPS.png)
 
 ### 
 FIPS and SharePoint

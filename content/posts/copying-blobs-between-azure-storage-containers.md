@@ -3,6 +3,8 @@ title: "Copying BLOBs Between Azure Storage Containers"
 date: 2015-07-20T12:30:00+0000
 categories: ["PowerShell", "Azure"]
 tags: ["Azure for Government", "BLOB", "Azure Containers", "Copy", "AzureStorageBlobCopy", "Government Cloud", "Azure Storage"]
+aliases:
+  - "/2015/07/copying-blobs-between-azure-storage.html"
 legacy: true
 ---
 

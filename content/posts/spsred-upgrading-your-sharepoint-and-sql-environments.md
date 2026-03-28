@@ -3,6 +3,8 @@ title: "SPSRED: Upgrading your SharePoint and SQL Environments"
 date: 2012-10-01T20:17:00+0000
 categories: ["SharePoint", "SQL"]
 tags: ["SharePoint 2010", "SharePoint 2013", "SQL 2012", "Upgrade"]
+aliases:
+  - "/2012/10/spsred-upgrading-your-sharepoint-and.html"
 legacy: true
 ---
 

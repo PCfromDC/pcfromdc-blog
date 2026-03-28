@@ -2,6 +2,8 @@
 title: "Extending Web Applications and Using FBA for External Users"
 date: 2011-06-25T03:38:00+0000
 draft: true
+aliases:
+  - "/2011/06/extending-web-applications-and-using.html"
 legacy: true
 ---
 

@@ -3,6 +3,8 @@ title: "SharePoint 2013 and Web Application Proxy (WAP) Server"
 date: 2015-02-10T03:46:00+0000
 categories: ["PowerShell", "Networking"]
 tags: ["HTTP Redirect", "Miguel Wood", "HTTPS", "WAP", "HTTP", "ADFS", "Web Application Proxy Server"]
+aliases:
+  - "/2015/02/sharepoint-2013-and-web-application.html"
 legacy: true
 ---
 
@@ -14,7 +16,7 @@ This is where things started to get a bit messy. After updating the URLs and add
 
 Silly me, I had not set up the WAP server to pass the app domain. After spending way too much time on trying to figure it out, I decided that I had best do a bit of research. I came across the this article in TechNet, [https://technet.microsoft.com/en-us/library/dn383655.aspx](https://technet.microsoft.com/en-us/library/dn383655.aspx), that explains why I was not able to pass the app domain successfully.
 
-[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGlQfEocWAGXWZiM3cyLsMgrpjA87cEOzX7c4TciwXRkhnb7ze3AMm-u02FOMkr-vAyIOkUMyQEfDbkuS0-WF_4AaJmgDduvTFlUoHH2wrRVZF_epR2hwab2QErf2vWKn4EyKAlc4YYPAT/s1600/Not+Supported.png)
+[*](/images/Not Supported.png)
 Well, this is a bit frustrating... So I went back into DNS and pointed the app domain back to the Cloud Service URL for the app domain. Long story, short... I reverted back to creating CNAMEs for all of the public facing URLs to the appropriate Azure Cloud Service.
 
 #### 
@@ -43,7 +45,7 @@ Let's Get Started
 
 If you are already running WAP servers, you will run into issues, unless you remove the older versions first. Ideally you have a development environment to install ADFS and WAP, as you do not want to deploy the technical evaluation bits in your production environment. As just mentioned, if you do add the new WAP server into an older WAP cluster, you will run into this issue:
 
-[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqaj8ItvfnDMiq-PNgTyguMdIKZgnIRXWTBlRIVeAW0x68BoubTw9331oKfmCNhrJvSiwzlsx2aRzKnzp8Nvm_hpLDUcUAeV4P7CyGKfEEWmCZa5UI9xLk7eCmvyXfImF5cIJsaKClVbVF/s1600/old+wap+error.png)
+[*](/images/old wap error.png)
 I recommend standing up a new ADFS server on a seperate VLAN that WAP can connect to, but not actually use the server for ADFS.
 
 The first thing you will need to do is grab the ISO from the TechNet Evaluation Center, [http://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview](http://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview). 
@@ -65,23 +67,23 @@ Prepare The Server
 
 Ideally you would want to run your WAP server with 2 NIC cards, so at this point, label and set your 2 NIC Cards, and assign your IP Addresses for each. For example, to start, my Network looks like this: 
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKII7VYzcymI2EIIQ-RarKyk2hc_lw-RwVnfxN3fXg4jW0bfhIX47VAjm1wqeAs-Y3yocw12wOWWsN-YhoWGeoSnnzBnCz6EpQNfGs-1ZaY9ypLkuD8bKY-jP3dzOnt4u89EB2mBd2lZ2v/s1600/Networks.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKII7VYzcymI2EIIQ-RarKyk2hc_lw-RwVnfxN3fXg4jW0bfhIX47VAjm1wqeAs-Y3yocw12wOWWsN-YhoWGeoSnnzBnCz6EpQNfGs-1ZaY9ypLkuD8bKY-jP3dzOnt4u89EB2mBd2lZ2v/s1600/Networks.png)
+[![](/images/Networks.png)](/images/Networks.png)
 
 My external facing NIC looks like this:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3Pxs4NwsK9QXWxCqc3akYUPgutl9fYBAuUiN3aUMWu3mWgV_kpcqML5Y8scczdiawwQarDlGMX5MNsFJxIZgjaSHokjzesSohFE__wt6gTj86c1Aa0QoLLc7r_q94cf794MMspGTTkpW5/s1600/external+nic.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3Pxs4NwsK9QXWxCqc3akYUPgutl9fYBAuUiN3aUMWu3mWgV_kpcqML5Y8scczdiawwQarDlGMX5MNsFJxIZgjaSHokjzesSohFE__wt6gTj86c1Aa0QoLLc7r_q94cf794MMspGTTkpW5/s1600/external+nic.png)
+[![](/images/external nic.png)](/images/external nic.png)
 
 My internal facing NIC looks like this:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJzslEDQ5KGHZ8DtcPHbaCiqNNRIn8vZ1COtbSkwwyc5uwEFpZsvYm3wQqX0G1UbB3oLBLk5-lYGpj0sZK6GGvDY8VdESnUk5pyXd5CJCIFleA6g0KysDbN1L2Aqc6Z166yM97LFkeLMUq/s1600/internal+nic2.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJzslEDQ5KGHZ8DtcPHbaCiqNNRIn8vZ1COtbSkwwyc5uwEFpZsvYm3wQqX0G1UbB3oLBLk5-lYGpj0sZK6GGvDY8VdESnUk5pyXd5CJCIFleA6g0KysDbN1L2Aqc6Z166yM97LFkeLMUq/s1600/internal+nic2.png)
+[![](/images/internal nic2.png)](/images/internal nic2.png)
 Adding the default gateway information the DNS information will allow us to not rely on using the HOSTS file and will update our Network Types:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCqyl-5n_32aS9mZvrwp91gGKoUKU08DByYtaer7PBULnJuEr8WbSYxMhs4eSszY0AS13q-z_GRaifKg4s8Lb5WNIAeE7cqv9N2bjZxoJy2INtGLIT2DFB8fMCtpQAvOB9CZrv1XaZKSi9/s1600/NIC+After.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCqyl-5n_32aS9mZvrwp91gGKoUKU08DByYtaer7PBULnJuEr8WbSYxMhs4eSszY0AS13q-z_GRaifKg4s8Lb5WNIAeE7cqv9N2bjZxoJy2INtGLIT2DFB8fMCtpQAvOB9CZrv1XaZKSi9/s1600/NIC+After.png)
+[![](/images/NIC After.png)](/images/NIC After.png)
 By having the NICs on different network types, you can then close off the ports appropriately.
 
 After setting up your NICs clean up your firewall so that only the required ports each network type are set up correctly. For example, you do not want to be using Remote Desktop from the Internet side of your server. Make sure that you open up port 80 on the Public side of your firewall, but keep it closed on the internal side. 
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpCe4BiLGzRfx4K-xHxW8VJcPYhz4-lDw4MueKGbokTsgMY4cofn5lbhPGWBsnlO-mYYRihwVe5PClnEEDhj4E0B0Y6ZIAYGwJup_t4O2ufvfzX6RpBxVEG0i9EHbVAGrbIu-zXnk_PLQE/s1600/Firewall+Rules.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpCe4BiLGzRfx4K-xHxW8VJcPYhz4-lDw4MueKGbokTsgMY4cofn5lbhPGWBsnlO-mYYRihwVe5PClnEEDhj4E0B0Y6ZIAYGwJup_t4O2ufvfzX6RpBxVEG0i9EHbVAGrbIu-zXnk_PLQE/s1600/Firewall+Rules.png)
+[![](/images/Firewall Rules.png)](/images/Firewall Rules.png)
 
 Next is to enable the WAP server feature.
 
@@ -97,14 +99,14 @@ Get-Command –Module WebApplicationProxy
 
 on bother the old and new WAP server, during the beta phase at least, the available cmdlets are the same.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2gnXSUeD6RTiJdLRrXg8HQwoRLVejMPuYe9rQioa22RMiMa5y8ll4AWEABxo_MqaFDH7yfn8SxHy4I2tF2GO_kdj3f0YP2hyphenhyphenOnk0rce4eysVXkYF9Jr4QSSCU1c-xsZckS0tGNKTqXcFC/s1600/old+vs+new.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2gnXSUeD6RTiJdLRrXg8HQwoRLVejMPuYe9rQioa22RMiMa5y8ll4AWEABxo_MqaFDH7yfn8SxHy4I2tF2GO_kdj3f0YP2hyphenhyphenOnk0rce4eysVXkYF9Jr4QSSCU1c-xsZckS0tGNKTqXcFC/s1600/old+vs+new.png)
+[![](/images/old vs new.png)](/images/old vs new.png)
 
 #### 
 Import / Export Certificates
 
 We will need to import certificates with that contain private keys. We will be populating the WAP server with the following information:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfRYWHCFR8JD7X0oaJ1J66mfABPEIuZyG00ae9K75ZN_1cHjeLEL2P6AZz8Zc_ZjJfEdvMxc1ouMNK2k67Ax7LHI4w8wCowKx68QAcaTQ-X6ndQUw0Ma9znMObc3oGuULUO-byokUlG-AK/s1600/Certificate+Info.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfRYWHCFR8JD7X0oaJ1J66mfABPEIuZyG00ae9K75ZN_1cHjeLEL2P6AZz8Zc_ZjJfEdvMxc1ouMNK2k67Ax7LHI4w8wCowKx68QAcaTQ-X6ndQUw0Ma9znMObc3oGuULUO-byokUlG-AK/s1600/Certificate+Info.png)
+[![](/images/Certificate Info.png)](/images/Certificate Info.png)
 
 We have placed all of our certificates in the C:\Certificates\Imports *folder. To import them all run the following:
 
@@ -140,9 +142,9 @@ $certificate.DnsNameList | Select Unicode
 
 Now that the certificates are installed, it's time to set-up WAP for the incoming URLs. But first let's first compare the take a look at the Add-WebApplicationProxyApplication cmdlet from Server 2012R2 to the Technical Preview.
 
-[*](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEWQxuKASwOw8LBgCwKVXpIfMSxnY9kiluTVFILDBeQeHMfcD1ZaiQF-nF6M_tEKTJkdySuYJlNi-T5x1uJk9aE10F1Bwoz95pT00q-v4juS8BT_DEGo4B-CHUMW1pReF0KSIWyj0EreZ-/s1600/cmdlet+comparison.png)
+[*](/images/cmdlet comparison.png)
 
-The items in Yellow are the new properties at this point. Now the one that is really important to me is the EnableHTTPRedirect.* This will allow users to go to http://sp2013.contoso.com and get redirected to https://sp2013.contoso.com automatically without having to open port 80 on your Firewall (Private Network) or on your SharePoint server. Basically this stops us from having to  create a redirect in IIS as described in my blog post *[How to Redirect from HTTP to HTTPS with URL Rewrite](http://pcfromdc.blogspot.com/2013/10/how-to-redirect-from-http-to-https-with.html)*
+The items in Yellow are the new properties at this point. Now the one that is really important to me is the EnableHTTPRedirect.* This will allow users to go to http://sp2013.contoso.com and get redirected to https://sp2013.contoso.com automatically without having to open port 80 on your Firewall (Private Network) or on your SharePoint server. Basically this stops us from having to  create a redirect in IIS as described in my blog post *[How to Redirect from HTTP to HTTPS with URL Rewrite](/posts/how-to-redirect-from-http-to-https-with/)*
 
 #### 
 Update HOSTS File
@@ -264,14 +266,14 @@ Add-WebApplicationProxyApplication -ExternalPreauthentication PassThrough `
 
 After you have created all of your Web Applications, if you go into the Remote Access Management Console, your list of Published Web Applications might look similar to this:
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO_YkDVeR3x9ypyeAwy66i_zxeRXNE5rRQPvDnFE5nYHWybXU_Dj4UqgZdDu9WZlaC-SG2pbm4P_k6WOmCNPvV7YGq-rzLvXjbTd9p1k2qm2auyJqYLwpl9vRL7d74F8LJsqDUlGli57WA/s1600/WA+List.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO_YkDVeR3x9ypyeAwy66i_zxeRXNE5rRQPvDnFE5nYHWybXU_Dj4UqgZdDu9WZlaC-SG2pbm4P_k6WOmCNPvV7YGq-rzLvXjbTd9p1k2qm2auyJqYLwpl9vRL7d74F8LJsqDUlGli57WA/s1600/WA+List.png)
+[![](/images/WA List.png)](/images/WA List.png)
 There you go! You now have the ability to create all the WAC Web Applications that you will need to allow external users into your SharePoint environment safely. It is easy to edit or delete the Web Applications in the GUI if you make a mistake.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDtHi-niB_nn1Q2fqVCsDIhSRXYfLPPTYIa9mTp9sy6KdEfy8bksGvhnwj1eH0m8dBXsoMyTkOqtNOiheSgrOiLAoTZX-pwmQCTx2frlMo379AVX8BzEz3EjHwawajxScFcgdT07ELPorX/s1600/edit+1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDtHi-niB_nn1Q2fqVCsDIhSRXYfLPPTYIa9mTp9sy6KdEfy8bksGvhnwj1eH0m8dBXsoMyTkOqtNOiheSgrOiLAoTZX-pwmQCTx2frlMo379AVX8BzEz3EjHwawajxScFcgdT07ELPorX/s1600/edit+1.png)
+[![](/images/edit 1.png)](/images/edit 1.png)
 
 They will even supply the PowerShell for later use.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhddD-9yoyI0bTxd24YIitxjSkvsTkt-pE1dYGO1BvGTgPGghbJ0vz0ujnmjNbudTaRN2HVk4FRv98soPgHuYH04FZ9ki9z6WrhyphenhyphenvSm2OZ9UQGW7L6OfEPbUbxzsAvsn26kKfJq476WXC8F/s1600/edit+2.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhddD-9yoyI0bTxd24YIitxjSkvsTkt-pE1dYGO1BvGTgPGghbJ0vz0ujnmjNbudTaRN2HVk4FRv98soPgHuYH04FZ9ki9z6WrhyphenhyphenvSm2OZ9UQGW7L6OfEPbUbxzsAvsn26kKfJq476WXC8F/s1600/edit+2.png)
+[![](/images/edit 2.png)](/images/edit 2.png)
 
 Once you have ADFS up and running, regardless if you use it or not, the new WAP server is even better than the previous product. Hopefully this post will help get you started on the road to creating a SharePoint Hybrid environment or just creating a reverse proxy server to keep your SharePoint (or any other site) safe.
 

@@ -3,6 +3,8 @@ title: "Running STSADM Commands"
 date: 2011-01-19T18:31:00+0000
 categories: ["SharePoint"]
 tags: ["STSADM", "Path"]
+aliases:
+  - "/2011/01/running-stsadm-commands.html"
 legacy: true
 ---
 

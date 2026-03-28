@@ -2,6 +2,8 @@
 title: "Windows 8 and The Unsupported Cisco VPN Client"
 date: 2012-08-11T21:24:00+0000
 tags: ["Windows 8", "Cisco", "Registry Hacks", "VPN", "VPN Client"]
+aliases:
+  - "/2012/08/windows-8-and-the-unsupported-cisco.html"
 legacy: true
 ---
 
@@ -15,7 +17,7 @@ To resolve this issue:
 
 \HKLM\SYSTEM\CurrentControlSet\Services\vpnva\DisplayName
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilqQcweYSqnmGhyphenhyphenyHmWEe6kmNy2iQAyvcTLozMqlxcmobGrjssefBDYX2NfHObpxiMsoFwBsoB0bJoPufvIfcOgAdCjDnx4b9-XK_FjtOQtZUiwfGjwS5voFUKV669W10gk3LyfB7xhgjF/s400/Regedit.PNG)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilqQcweYSqnmGhyphenhyphenyHmWEe6kmNy2iQAyvcTLozMqlxcmobGrjssefBDYX2NfHObpxiMsoFwBsoB0bJoPufvIfcOgAdCjDnx4b9-XK_FjtOQtZUiwfGjwS5voFUKV669W10gk3LyfB7xhgjF/s1600/Regedit.PNG)
+[![](/images/Regedit.PNG)](/images/Regedit.PNG)
 
 2) Edit the DisplayName, and clean out all of the junk (including the semi-colon) before the adapter name, leaving just the display name.  For example:
 
@@ -25,4 +27,4 @@ becomes:
 
 "Cisco AnyConnect VPN Virtual Miniport Adapter for Windows x64"
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTQeP2QTrmeqlO2y5U9d9VXlxd1EOCFEGnR7yX-yXTCbCfHKhULbV2GEvD-qpT5kIQo3by-L1flWcFWZZ_OWuwLGXA2r6Vvs-td3F-DsXbuJ5PTV7BHuJjFo9hpSw-BG4ERMOLjjVU1cDw/s400/DisplayName.PNG)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTQeP2QTrmeqlO2y5U9d9VXlxd1EOCFEGnR7yX-yXTCbCfHKhULbV2GEvD-qpT5kIQo3by-L1flWcFWZZ_OWuwLGXA2r6Vvs-td3F-DsXbuJ5PTV7BHuJjFo9hpSw-BG4ERMOLjjVU1cDw/s1600/DisplayName.PNG)
+[![](/images/DisplayName.PNG)](/images/DisplayName.PNG)

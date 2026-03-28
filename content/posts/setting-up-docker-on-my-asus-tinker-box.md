@@ -2,6 +2,8 @@
 title: "Setting Up Docker on my Asus Tinker Box"
 date: 2017-12-19T21:55:00+0000
 draft: true
+aliases:
+  - "/2017/12/setting-up-docker-on-my-asus-tinker-box.html"
 legacy: true
 ---
 

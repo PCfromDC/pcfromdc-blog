@@ -3,6 +3,8 @@ title: "Add SharePoint Snap-In to PowerShell ISE"
 date: 2012-01-10T19:36:00+0000
 categories: ["PowerShell"]
 tags: ["SharePoint 2010", "SharePoint 2013", "ISE"]
+aliases:
+  - "/2012/01/add-sharepoint-snap-in-to-powershell.html"
 legacy: true
 ---
 

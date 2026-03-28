@@ -3,6 +3,8 @@ title: "Using PowerShell to Export Your .WSP Packages"
 date: 2012-11-03T17:56:00+0000
 categories: ["PowerShell", "SharePoint"]
 tags: ["SharePoint 2010", "SharePoint 2013", "WSP Files", "Upgrade"]
+aliases:
+  - "/2012/11/using-powershell-to-export-your-wsp.html"
 legacy: true
 ---
 

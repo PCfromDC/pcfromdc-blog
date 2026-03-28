@@ -3,6 +3,8 @@ title: "Manually Download and Install the Prerequisites for SharePoint 2016"
 date: 2015-08-24T23:40:00+0000
 categories: ["PowerShell"]
 tags: ["Prerequisites", "Off-line", "Installation", "Windows Server 2012R2", "Offline Installation", "Technical Preview", "Offline", "Windows Server 2016", "SharePoint 2016", "sp2016"]
+aliases:
+  - "/2015/08/manually-download-and-install-the.html"
 legacy: true
 ---
 

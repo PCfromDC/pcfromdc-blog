@@ -3,6 +3,8 @@ title: "Force .eml Files to Open in Outlook 2007"
 date: 2011-08-10T18:49:00+0000
 categories: ["SharePoint"]
 tags: ["Email", "Registry Hacks", "Outlook"]
+aliases:
+  - "/2011/08/force-eml-files-to-open-in-outlook-2007.html"
 legacy: true
 ---
 

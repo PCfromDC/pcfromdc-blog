@@ -3,6 +3,8 @@ title: "SPSNoLA: Augmenting User Profiles with Line of Business Data"
 date: 2012-04-06T13:46:00+0000
 categories: ["SharePoint", "SQL"]
 tags: ["SharePoint 2010", "UPS", "BCS"]
+aliases:
+  - "/2012/04/spsnola-augmenting-user-profiles-with.html"
 legacy: true
 ---
 

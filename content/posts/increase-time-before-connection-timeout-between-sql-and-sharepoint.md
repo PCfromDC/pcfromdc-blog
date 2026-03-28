@@ -3,6 +3,8 @@ title: "Increase Time Before Connection Timeout Between SQL and SharePoint"
 date: 2011-03-18T03:05:00+0000
 categories: ["SharePoint", "SQL"]
 tags: ["Connections", "SharePoint 2010", "SharePoint 2007", "Web Config"]
+aliases:
+  - "/2011/03/increase-time-before-connection.html"
 legacy: true
 ---
 
@@ -22,4 +24,4 @@ This is how you fix the timeout issue:
 
 In the example below, my connection will now timeout after 5 minutes (300 seconds).
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHU7xDEPkJAJRur4W7Ss6hhxIOmQ31ClZRolwUVWRlMykiSWn4Yz0VDehFKn8sPCzWvCwt1ABgNVfmBmA1UV3AJICzWlnTizvqGldxJrqS3sdfSoval7mvddGcVPddBsKFQRIFqqwL8k4H/s640/Increase+Timeout.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHU7xDEPkJAJRur4W7Ss6hhxIOmQ31ClZRolwUVWRlMykiSWn4Yz0VDehFKn8sPCzWvCwt1ABgNVfmBmA1UV3AJICzWlnTizvqGldxJrqS3sdfSoval7mvddGcVPddBsKFQRIFqqwL8k4H/s1600/Increase+Timeout.jpg)
+[![](/images/Increase Timeout.jpg)](/images/Increase Timeout.jpg)

@@ -3,6 +3,8 @@ title: "SPCTCDC 2011 Codeless SQL Integration Presentation"
 date: 2011-08-14T00:27:00+0000
 categories: ["SQL"]
 tags: ["GridView", "Presentations", "SPSTCDC"]
+aliases:
+  - "/2011/08/spctcdc-2011-codeless-sql-integration.html"
 legacy: true
 ---
 

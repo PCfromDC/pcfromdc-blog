@@ -3,6 +3,8 @@ title: "Get The DBO From All SQL Databases"
 date: 2012-01-17T03:55:00+0000
 categories: ["SQL"]
 tags: ["DBO"]
+aliases:
+  - "/2012/01/get-the-dbo-from-all-sql-databases.html"
 legacy: true
 ---
 
@@ -28,7 +30,7 @@ sp_changeDbOwner @loginame = 'domain\username'
 
 However, you might run into an error is the DBO is already a user or aliased in the database.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUY4R8JkQeYnVwGxDRAj_NqdMMrCDgNLRnloaW9xx7BengFotDzCGy8t_9Irdkju52rlQ5mSheH3GsZ8kEa9OLpW6KyqrcD26Z4YjrS6_trJdGUBPB_2Zmqw6f4z56EjrlSiCkotUsP1qt/s1600/Error+Message.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUY4R8JkQeYnVwGxDRAj_NqdMMrCDgNLRnloaW9xx7BengFotDzCGy8t_9Irdkju52rlQ5mSheH3GsZ8kEa9OLpW6KyqrcD26Z4YjrS6_trJdGUBPB_2Zmqw6f4z56EjrlSiCkotUsP1qt/s1600/Error+Message.jpg)
+[![](/images/Error Message.jpg)](/images/Error Message.jpg)
 To fix this problem, run the following:
 
 ```

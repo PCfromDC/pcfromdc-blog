@@ -2,6 +2,8 @@
 title: "Cannot Build Data View Web Part Remotely"
 date: 2011-02-05T04:02:00+0000
 tags: ["SharePoint Designer", "Web Config"]
+aliases:
+  - "/2011/02/cannot-build-data-view-web-part.html"
 legacy: true
 ---
 
