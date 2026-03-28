@@ -8,7 +8,7 @@ enableImageLazyLoading = true
 enableImageWebp = true
 
 [header]
-  layout = "basic"
+  layout = "hamburger"
   showTitle = true
 
 [footer]

@@ -3,7 +3,7 @@ languageName = "English"
 languageDirection = "ltr"
 weight = 1
 
-title = "The PC Way — DevOps, Cloud, and SharePoint"
+title = "The PC Way"
 
 [params]
   dateFormat = "January 2, 2006"
